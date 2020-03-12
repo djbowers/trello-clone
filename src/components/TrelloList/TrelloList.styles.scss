@@ -1,6 +1,14 @@
+@import '../../mixins';
+
 .trello-list {
-  background-color: #ccc;
+  background-color: $color__grey;
   border-radius: 3px;
   width: 300px;
   padding: 8px;
+  margin: 8px;
+  margin-right: 0;
+
+  .list-title {
+    padding: 8px;
+  }
 }

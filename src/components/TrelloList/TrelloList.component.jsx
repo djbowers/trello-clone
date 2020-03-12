@@ -7,9 +7,9 @@ import './TrelloList.styles.scss'
 const TrelloList = ({ title, cards }) => {
   return (
     <div className="trello-list">
-      <h4>{title}</h4>
+      <div className="list-title">{title}</div>
       {cards.map(card => (
-        <TrelloCard text={card.text} />
+        <TrelloCard key={card.id} text={card.text} />
       ))}
     </div>
   )

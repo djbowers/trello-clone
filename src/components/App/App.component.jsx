@@ -6,10 +6,10 @@ import TrelloList from '../TrelloList'
 const App = ({ lists }) => {
   return (
     <div className="app">
-      <h2>Trello Clone</h2>
-      <div className="lists">
+      <div className="app-title">Trello Clone</div>
+      <div className="list-container">
         {lists.map(list => (
-          <TrelloList title={list.title} cards={list.cards} />
+          <TrelloList key={list.id} title={list.title} cards={list.cards} />
         ))}
       </div>
     </div>
