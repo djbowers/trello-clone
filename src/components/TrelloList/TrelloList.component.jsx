@@ -1,7 +1,7 @@
 import React from 'react'
 
 import TrelloCard from '../TrelloCard'
-
+import TrelloActionButton from '../TrelloActionButton'
 import styles from './TrelloList.module.scss'
 
 const TrelloList = ({ title, cards }) => {
@@ -11,6 +11,8 @@ const TrelloList = ({ title, cards }) => {
       {cards.map(card => (
         <TrelloCard key={card.id} text={card.text} />
       ))}
+      <TrelloActionButton />
+      <TrelloActionButton list />
     </div>
   )
 }
