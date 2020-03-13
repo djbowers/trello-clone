@@ -1,30 +1,30 @@
 @import '../../styles';
 
-.listButton {
+.listStyle {
   opacity: 1;
   color: white;
   background-color: rgba(0, 0, 0, 0.15);
 }
 
-.cardButton {
+.cardStyle {
   opacity: 0.5;
   color: inherit;
   background-color: inherit;
 }
 
-.addButtonGroup {
+.addButtonContainer {
   display: flex;
   align-items: center;
   cursor: pointer;
   border-radius: 3px;
   height: 2.5rem;
-  max-width: 300px;
+  max-width: $width__list;
   width: 100%;
   padding-left: 8px;
   margin-right: 8px;
 }
 
-.formButtonGroup {
+.formButtonContainer {
   margin-top: 8px;
   display: flex;
   align-items: center;
@@ -40,4 +40,8 @@
 
 .formList {
   @include trelloList;
+}
+
+.formContent {
+  padding: 0.5rem;
 }

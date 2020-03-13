@@ -1,7 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import TextArea from 'react-textarea-autosize'
-import CardContent from '@material-ui/core/CardContent'
 import Icon from '@material-ui/core/Icon'
 import Card from '@material-ui/core/Card'
 import Button from '@material-ui/core/Button'
@@ -49,12 +48,12 @@ class TrelloActionButton extends React.Component {
     const { list } = this.props
 
     const buttonText = list ? 'Add another list' : 'Add a card'
-    const buttonType = list ? styles.listButton : styles.cardButton
+    const buttonStyle = list ? styles.listStyle : styles.cardStyle
 
     return (
       <div
         onClick={this.openForm}
-        className={cx(buttonType, styles.addButtonGroup)}
+        className={cx(styles.addButtonContainer, buttonStyle)}
       >
         <Icon>add</Icon>
         <p style={{ marginLeft: 8 }}>{buttonText}</p>
@@ -74,19 +73,17 @@ class TrelloActionButton extends React.Component {
 
     return (
       <div className={formList}>
-        <Card>
-          <CardContent>
-            <TextArea
-              placeholder={placeholder}
-              onBlur={this.closeForm}
-              autoFocus
-              value={this.state.text}
-              onChange={this.handleInputChange}
-              className={styles.formText}
-            />
-          </CardContent>
+        <Card className={styles.formContent}>
+          <TextArea
+            placeholder={placeholder}
+            onBlur={this.closeForm}
+            autoFocus
+            value={this.state.text}
+            onChange={this.handleInputChange}
+            className={styles.formText}
+          />
         </Card>
-        <div className={styles.formButtonGroup}>
+        <div className={styles.formButtonContainer}>
           <Button
             onMouseDown={this.handleAddList}
             variant="contained"
