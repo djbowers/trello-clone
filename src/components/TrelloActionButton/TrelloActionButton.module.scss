@@ -8,6 +8,7 @@
   opacity: 0.5;
   color: inherit;
   background-color: inherit;
+  margin-top: 8px;
 }
 
 .buttonGroup {
@@ -18,4 +19,17 @@
   height: 36px;
   max-width: 300px;
   padding-left: 10px;
+}
+
+.formText {
+  resize: none;
+  outline: none;
+  width: 100%;
+  border: none;
+  font-size: 1rem;
+}
+
+.formCard {
+  min-height: 85px;
+  margin-top: 8px;
 }

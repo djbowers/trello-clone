@@ -12,7 +12,6 @@ const TrelloList = ({ title, cards }) => {
         <TrelloCard key={card.id} text={card.text} />
       ))}
       <TrelloActionButton />
-      <TrelloActionButton list />
     </div>
   )
 }
