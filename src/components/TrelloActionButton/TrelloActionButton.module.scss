@@ -1,3 +1,5 @@
+@import '../../styles';
+
 .listButton {
   opacity: 1;
   color: white;
@@ -8,7 +10,6 @@
   opacity: 0.5;
   color: inherit;
   background-color: inherit;
-  // margin-top: 8px;
 }
 
 .addButtonGroup {
@@ -16,13 +17,15 @@
   align-items: center;
   cursor: pointer;
   border-radius: 3px;
-  height: 36px;
+  height: 2.5rem;
   max-width: 300px;
-  padding-left: 10px;
+  width: 100%;
+  padding-left: 8px;
+  margin-right: 8px;
 }
 
 .formButtonGroup {
-  // margin-top: 8px;
+  margin-top: 8px;
   display: flex;
   align-items: center;
 }
@@ -33,4 +36,8 @@
   width: 100%;
   border: none;
   font-size: 1rem;
+}
+
+.formList {
+  @include trelloList;
 }

@@ -35,7 +35,7 @@ class TrelloActionButton extends React.Component {
   renderAddButton = () => {
     const { list } = this.props
 
-    const buttonText = list ? 'Add another list' : 'Add another card'
+    const buttonText = list ? 'Add another list' : 'Add a card'
     const buttonType = list ? styles.listButton : styles.cardButton
 
     return (
@@ -57,10 +57,11 @@ class TrelloActionButton extends React.Component {
       : 'Enter a title for this card...'
 
     const buttonTitle = list ? 'Add List' : 'Add Card'
+    const formList = list ? styles.formList : null
 
     return (
-      <div>
-        <Card style={{ minHeight: 85, marginTop: 8 }}>
+      <div className={formList}>
+        <Card>
           <CardContent>
             <TextArea
               placeholder={placeholder}

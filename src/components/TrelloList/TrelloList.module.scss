@@ -1,15 +1,15 @@
-@import '../../styles/variables';
+@import '../../styles';
 
 .container {
-  background-color: $color__grey;
-  border-radius: 3px;
-  width: 300px;
-  padding: 8px;
-  margin: 8px;
-  margin-right: 0;
-  height: 100%;
+  @include trelloList;
+  margin-right: 0.5rem;
 
-  &:last-child {
-    margin-right: 8px;
+  &:first-child {
+    margin-left: 0.5rem;
   }
+}
+
+.title {
+  padding: 0.5rem;
+  margin-bottom: 0.5rem;
 }
