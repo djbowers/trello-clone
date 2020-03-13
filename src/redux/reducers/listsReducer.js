@@ -30,13 +30,13 @@ const initialState = [
       }
     ]
   }
-];
+]
 
 const listsReducer = (state = initialState, { type, payload }) => {
   switch (type) {
     default:
-      return state;
+      return state
   }
-};
+}
 
-export default listsReducer;
+export default listsReducer

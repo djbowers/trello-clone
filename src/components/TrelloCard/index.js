@@ -1,3 +1,3 @@
-import TrelloCard from './TrelloCard.component';
+import TrelloCard from './TrelloCard.component'
 
-export default TrelloCard;
+export default TrelloCard

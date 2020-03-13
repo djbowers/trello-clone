@@ -1,3 +1,3 @@
-import TrelloList from './TrelloList.component';
+import TrelloList from './TrelloList.component'
 
-export default TrelloList;
+export default TrelloList
