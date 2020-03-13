@@ -2,12 +2,12 @@ import React from 'react'
 
 import TrelloCard from '../TrelloCard'
 
-import './TrelloList.styles.scss'
+import styles from './TrelloList.module.scss'
 
 const TrelloList = ({ title, cards }) => {
   return (
-    <div className="trello-list">
-      <div className="list-title">{title}</div>
+    <div className={styles.trelloList}>
+      <div className={styles.listTitle}>{title}</div>
       {cards.map(card => (
         <TrelloCard key={card.id} text={card.text} />
       ))}

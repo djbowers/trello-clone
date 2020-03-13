@@ -3,11 +3,13 @@ import { connect } from 'react-redux'
 
 import TrelloList from '../TrelloList'
 
+import styles from './App.module.scss'
+
 const App = ({ lists }) => {
   return (
-    <div className="app">
-      <div className="app-title">Trello Clone</div>
-      <div className="list-container">
+    <div className={styles.app}>
+      <div className={styles.appTitle}>Trello Clone</div>
+      <div className={styles.listContainer}>
         {lists.map(list => (
           <TrelloList key={list.id} title={list.title} cards={list.cards} />
         ))}
