@@ -6,7 +6,7 @@ import Card from '@material-ui/core/Card'
 import Button from '@material-ui/core/Button'
 import cx from 'classnames'
 
-import { addList } from '../../redux/actions'
+import { addList, addCard } from '../../redux/actions'
 import styles from './TrelloActionButton.module.scss'
 
 class TrelloActionButton extends React.Component {
@@ -38,7 +38,25 @@ class TrelloActionButton extends React.Component {
     const { text } = this.state
 
     if (text) {
+      this.setState({
+        text: ''
+      })
       dispatch(addList(text))
+    }
+
+    return
+  }
+
+  handleAddCard = () => {
+    const { dispatch } = this.props
+    const { text } = this.state
+    const { listId } = this.props
+
+    if (text) {
+      this.setState({
+        text: ''
+      })
+      dispatch(addCard(text, listId))
     }
 
     return
@@ -68,11 +86,12 @@ class TrelloActionButton extends React.Component {
       ? 'Enter list title...'
       : 'Enter a title for this card...'
 
+    const wrapList = list ? styles.formList : null
     const buttonTitle = list ? 'Add List' : 'Add Card'
-    const formList = list ? styles.formList : null
+    const buttonAction = list ? this.handleAddList : this.handleAddCard
 
     return (
-      <div className={formList}>
+      <div className={wrapList}>
         <Card className={styles.formContent}>
           <TextArea
             placeholder={placeholder}
@@ -85,7 +104,7 @@ class TrelloActionButton extends React.Component {
         </Card>
         <div className={styles.formButtonContainer}>
           <Button
-            onMouseDown={this.handleAddList}
+            onMouseDown={buttonAction}
             variant="contained"
             style={{ color: 'white', backgroundColor: '#5aac44' }}
           >

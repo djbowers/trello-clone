@@ -21,20 +21,26 @@ const initialState = [
     title: 'List 2',
     cards: [
       {
-        id: 0,
+        id: 2,
         text:
           'Ullamco tempor dolore sunt dolore irure sit magna irure ea occaecat id.'
       },
       {
-        id: 1,
+        id: 3,
         text:
           'Ut sit in amet pariatur in dolore eiusmod minim commodo ad dolore.'
+      },
+      {
+        id: 4,
+        text:
+          'Quis exercitation est excepteur in est quis id exercitation esse.'
       }
     ]
   }
 ]
 
 let listId = 2
+let cardId = 5
 
 const listsReducer = (state = initialState, { type, payload }) => {
   switch (type) {
@@ -46,6 +52,26 @@ const listsReducer = (state = initialState, { type, payload }) => {
       }
       listId += 1
       return [...state, newList]
+
+    case ACTION_TYPES.ADD_CARD:
+      const newCard = {
+        text: payload.text,
+        id: cardId
+      }
+      cardId += 1
+
+      const newState = state.map(list => {
+        if (list.id === payload.listId) {
+          return {
+            ...list,
+            cards: [...list.cards, newCard]
+          }
+        } else {
+          return list
+        }
+      })
+
+      return newState
 
     default:
       return state
