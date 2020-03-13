@@ -1,12 +1,17 @@
 import React from 'react';
 import Card from '@material-ui/core/Card';
+import CardContent from '@material-ui/core/CardContent';
 import Typography from '@material-ui/core/Typography';
 
-const TrelloCard = () => {
+const TrelloCard = ({ text }) => {
   return (
-    <Card>
-      <Typography>Task 1</Typography>
-    </Card>
+    <div className="trello-card">
+      <Card>
+        <CardContent>
+          <Typography>{text}</Typography>
+        </CardContent>
+      </Card>
+    </div>
   );
 };
 

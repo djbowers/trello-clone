@@ -4,11 +4,13 @@ import TrelloCard from '../TrelloCard';
 
 import './TrelloList.styles.scss';
 
-const TrelloList = () => {
+const TrelloList = ({ title, cards }) => {
   return (
     <div className="trello-list">
-      <h3>My List</h3>
-      <TrelloCard />
+      <h4>{title}</h4>
+      {cards.map((card) => (
+        <TrelloCard text={card.text} />
+      ))}
     </div>
   );
 };
