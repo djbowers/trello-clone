@@ -6,8 +6,8 @@ import styles from './TrelloList.module.scss'
 
 const TrelloList = ({ title, cards }) => {
   return (
-    <div className={styles.trelloList}>
-      <div className={styles.listTitle}>{title}</div>
+    <div className={styles.container}>
+      <div style={{ padding: 8 }}>{title}</div>
       {cards.map(card => (
         <TrelloCard key={card.id} text={card.text} />
       ))}

@@ -3,6 +3,7 @@ import TextArea from 'react-textarea-autosize'
 import CardContent from '@material-ui/core/CardContent'
 import Icon from '@material-ui/core/Icon'
 import Card from '@material-ui/core/Card'
+import Button from '@material-ui/core/Button'
 import cx from 'classnames'
 
 import styles from './TrelloActionButton.module.scss'
@@ -40,10 +41,10 @@ class TrelloActionButton extends React.Component {
     return (
       <div
         onClick={this.openForm}
-        className={cx(buttonType, styles.buttonGroup)}
+        className={cx(buttonType, styles.addButtonGroup)}
       >
         <Icon>add</Icon>
-        <p>{buttonText}</p>
+        <p style={{ marginLeft: 8 }}>{buttonText}</p>
       </div>
     )
   }
@@ -55,11 +56,11 @@ class TrelloActionButton extends React.Component {
       ? 'Enter list title...'
       : 'Enter a title for this card...'
 
-    // const buttonTitle = list ? 'Add List' : 'Add Card'
+    const buttonTitle = list ? 'Add List' : 'Add Card'
 
     return (
       <div>
-        <Card className={styles.formCard}>
+        <Card style={{ minHeight: 85, marginTop: 8 }}>
           <CardContent>
             <TextArea
               placeholder={placeholder}
@@ -71,6 +72,15 @@ class TrelloActionButton extends React.Component {
             />
           </CardContent>
         </Card>
+        <div className={styles.formButtonGroup}>
+          <Button
+            variant="contained"
+            style={{ color: 'white', backgroundColor: '#5aac44' }}
+          >
+            {buttonTitle}
+          </Button>
+          <Icon style={{ marginLeft: 8, cursor: 'pointer' }}>close</Icon>
+        </div>
       </div>
     )
   }
