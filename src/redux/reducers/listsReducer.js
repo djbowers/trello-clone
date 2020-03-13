@@ -1,3 +1,5 @@
+import { ACTION_TYPES } from '../actions'
+
 const initialState = [
   {
     id: 0,
@@ -32,8 +34,19 @@ const initialState = [
   }
 ]
 
+let listId = 2
+
 const listsReducer = (state = initialState, { type, payload }) => {
   switch (type) {
+    case ACTION_TYPES.ADD_LIST:
+      const newList = {
+        title: payload,
+        cards: [],
+        id: listId
+      }
+      listId += 1
+      return [...state, newList]
+
     default:
       return state
   }
