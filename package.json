@@ -3,7 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "devDependencies": {
-    "prettier": "^1.19.1"
+    "prettier": "^1.19.1",
+    "redux-logger": "^3.0.6"
   },
   "dependencies": {
     "@material-ui/core": "^4.9.5",
