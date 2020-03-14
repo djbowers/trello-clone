@@ -3,10 +3,6 @@
 .container {
   @include trelloList;
   margin-right: 0.5rem;
-
-  &:first-child {
-    margin-left: 0.5rem;
-  }
 }
 
 .title {
