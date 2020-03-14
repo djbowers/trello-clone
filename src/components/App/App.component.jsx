@@ -1,6 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { DragDropContext } from 'react-beautiful-dnd'
+import { DragDropContext, Droppable } from 'react-beautiful-dnd'
 
 import TrelloList from '../TrelloList'
 import TrelloActionButton from '../TrelloActionButton'
@@ -9,7 +9,7 @@ import { sort } from '../../redux/actions'
 import styles from './App.module.scss'
 
 const App = ({ lists, dispatch }) => {
-  const onDragEnd = ({ destination, source, draggableId }) => {
+  const onDragEnd = ({ destination, source, draggableId, type }) => {
     if (!destination) {
       return
     }
@@ -20,7 +20,7 @@ const App = ({ lists, dispatch }) => {
         destination.droppableId,
         source.index,
         destination.index,
-        draggableId
+        type
       )
     )
   }
@@ -29,17 +29,27 @@ const App = ({ lists, dispatch }) => {
     <DragDropContext onDragEnd={onDragEnd}>
       <div className={styles.app}>
         <div className={styles.appTitle}>Trello Clone</div>
-        <div className={styles.listContainer}>
-          {lists.map(list => (
-            <TrelloList
-              key={list.id}
-              listId={list.id}
-              title={list.title}
-              cards={list.cards}
-            />
-          ))}
-          <TrelloActionButton list />
-        </div>
+        <Droppable droppableId="all-lists" direction="horizontal" type="list">
+          {provided => (
+            <div
+              className={styles.listContainer}
+              ref={provided.innerRef}
+              {...provided.droppableProps}
+            >
+              {lists.map((list, index) => (
+                <TrelloList
+                  key={list.id}
+                  listId={list.id}
+                  title={list.title}
+                  cards={list.cards}
+                  index={index}
+                />
+              ))}
+              {provided.placeholder}
+              <TrelloActionButton list />
+            </div>
+          )}
+        </Droppable>
       </div>
     </DragDropContext>
   )
