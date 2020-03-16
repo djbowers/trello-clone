@@ -2,7 +2,9 @@
   "name": "trello-clone",
   "version": "0.1.0",
   "private": true,
+  "homepage": "http://djbowers.github.io/trello-clone",
   "devDependencies": {
+    "gh-pages": "^2.2.0",
     "prettier": "^1.19.1",
     "redux-logger": "^3.0.6"
   },
@@ -19,6 +21,8 @@
     "redux": "^4.0.5"
   },
   "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
